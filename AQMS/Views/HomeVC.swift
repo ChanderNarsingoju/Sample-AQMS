@@ -57,15 +57,18 @@ class HomeVC: UIViewController {
         secondIdentifierLbl.text = homeDetails.authOneUserName
         thirdNameLbl.text = homeDetails.authTwoName
         thirdIdentifierLbl.text = homeDetails.authTwoUserName
-        firstImageView.imageFromUrl(urlString: "https://aqmsqa.scienstechnologies.com/qa-api/api/uploads/1_owner_1643891189011_5e3146c0cf.png")
-        //firstImageView.imageFromUrl(urlString: BASE_URL+homeDetails.userImage)
-        secondImageView.imageFromUrl(urlString: BASE_URL+homeDetails.authOneUserImage)
-        thirdImageView.imageFromUrl(urlString: BASE_URL+homeDetails.authTwoUserImage)
+        
+        let userImageUrl = viewModel.generateImageUrlWith(path: homeDetails.userImage)
+        firstImageView.imageFromUrl(urlString: userImageUrl)
+        let authOneImageUrl = viewModel.generateImageUrlWith(path: homeDetails.authOneUserImage)
+        secondImageView.imageFromUrl(urlString: authOneImageUrl)
+        let authTwoImageUrl = viewModel.generateImageUrlWith(path: homeDetails.authTwoUserImage)
+        thirdImageView.imageFromUrl(urlString: authTwoImageUrl)
     }
     
     @IBAction func menuAction(_ sender: Any) {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuVC = mainStoryboard.instantiateViewController(withIdentifier: "MenuVCIdentifier") as! MenuVC
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: MAIN_STORYOARD, bundle: nil)
+        let menuVC = mainStoryboard.instantiateViewController(withIdentifier: MENU_IDENTIFIER) as! MenuVC
         let navigationController = UINavigationController(rootViewController: menuVC)
         navigationController.isNavigationBarHidden = true
         

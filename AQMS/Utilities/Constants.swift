@@ -9,17 +9,39 @@ import Foundation
 
 //URLs
 let ENCODE_SECRET_KEY = "9EbGeKgNjRnT"
-let BASE_URL = "https://aqmsqa.scienstechnologies.com/qa-api/"
+let BASE_URL = "https://aqmsqa.scienstechnologies.com/qa-api"
 
-let BASE_LOGIN_URL: String = "\(BASE_URL)api/auth/local"
+let BASE_LOGIN_URL: String = "\(BASE_URL)/api/auth/local"
 let IMAGE_URL: String = BASE_URL
-let UPLOAD_URL: String = BASE_URL+"upload"
+let BOOKINGS_URL: String = BASE_URL + "/api/bookings?_sort=cr eated_at:DESC"
+let UPLOAD_URL: String = BASE_URL+"/upload"
 let PDF_URL: String = BASE_URL
 let PDF_URL_DOWNLOAD: String = BASE_URL+"/local/download-file"
 let ATTACHMENT_URL: String = BASE_URL
 
+//Storyboards
+let MAIN_STORYOARD: String = "Main"
 
+//Identifiers
+let HOME_PAGE_IDENTIFIER = "HomeVCIdentifier"
+let LOGIN_PAGE_IDENTIFIER = "LoginVCIdentifier"
+let SIGNUP_PAGE_IDENTIFIER = "SignUpVCIdentifier"
+let MENU_IDENTIFIER = "MenuVCIdentifier"
 
+//Cell Identifiers
+let HOME_COLLECTION_VIEW_CELL_IDENTIFIER = "HomeCollectionViewCellIdentifier"
+let MENU_COLLECTION_VIEW_CELL_IDENTIFIER = "MenuCollectionViewCellIdentifier"
+
+//String constants
+let ENTER_USERNAME_MESSAGE = "Please Enter Email/Phone"
+let ENTER_PASSWORD_MESSAGE = "Please Enter Password"
+let NO_INTERNET_MESSAGE = "No internet connection"
+let LOGOUT_TITLE = "Logout"
+let LOGOUT_ALERT_MESSAGE = "Are you sure you want to Logout?"
+let YES = "Yes"
+let NO = "No"
+
+//API header constants
 let HEADER_X_AUTH_TOKEN_KEY = "Authorization"
 let HEADER_X_API_VERSION = "x-api-version"
 let HEADER_X_API_SIGNATURE = "x-api-signature"

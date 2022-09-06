@@ -16,7 +16,7 @@ public enum HomePageOptions: String {
     case ADDITIONAL_CHARGES = "Additional Charges"
 }
 
-class HomeViewModel: NSObject {
+class HomeViewModel: BaseViewModel {
     //MARK: Variables
     let options = [HomePageOptions.TOTAL_BOOKINGS.rawValue,
                    HomePageOptions.TEST_REPORTS.rawValue,
@@ -74,7 +74,7 @@ class HomeViewModel: NSObject {
     ///   - indexPath: index
     /// - Returns: It returns the collection view cell.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCellIdentifier", for: indexPath) as! HomeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HOME_COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! HomeCollectionViewCell
         let item = options[indexPath.item]
         let icon = icons[indexPath.item]
         cell.titleLabel.text = item

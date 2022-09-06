@@ -39,6 +39,8 @@ class MenuVC: UIViewController {
     func dataBinding() {
         firstNameLbl.text = Defaults.name
         firstIdentifierLbl.text = Defaults.userName
+        let imageUrl = viewModel.generateImageUrlWith(path: Defaults.userImage)
+        firstImageView.imageFromUrl(urlString: imageUrl)
     }
     
 }

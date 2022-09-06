@@ -33,8 +33,10 @@ class LoginVC: UIViewController {
 
     func updateUI() {
         //MARK: REMOVE these values
+        //TODO: - Remove Hard Code Username Password
         usernameTF.text = "7287891362"
         passwordTF.text = "Test@123"
+        
         passwordTF.isSecureTextEntry = true
         usernameTF.iconType = .image
         passwordTF.iconType = .image
@@ -56,29 +58,19 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signUpAction(_ sender: Any) {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let signUpVC = mainStoryboard.instantiateViewController(withIdentifier: "SignUpVCIdentifier") as! SignUpVC
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: MAIN_STORYOARD, bundle: nil)
+        let signUpVC = mainStoryboard.instantiateViewController(withIdentifier: SIGNUP_PAGE_IDENTIFIER) as! SignUpVC
         
         self.navigationController?.pushViewController(signUpVC, animated: true)
-//        let navigationController = UINavigationController(rootViewController: signUpVC)
-//        navigationController.isNavigationBarHidden = true
-//
-//        // getting access to the window object from SceneDelegate
-//        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//              let sceneDelegate = windowScene.delegate as? SceneDelegate
-//        else {
-//            return
-//        }
-//        sceneDelegate.window?.rootViewController?.navigationController?.pushViewController(signUpVC, animated: true)
     }
     
     @IBAction func loginAction(_ sender: Any) {
         if usernameTF.text == nil || usernameTF.text == "" {
-            self.view.makeToast("Please Enter Email/Phone")
+            self.view.makeToast(ENTER_USERNAME_MESSAGE)
             return
         }
         if passwordTF.text == nil || passwordTF.text == "" {
-            self.view.makeToast("Please Enter Password")
+            self.view.makeToast(ENTER_PASSWORD_MESSAGE)
             return
         }
         if Reachability.isConnectedToNetwork() {
@@ -88,7 +80,7 @@ class LoginVC: UIViewController {
                 self.view.makeToast(failed)
             }
         } else {
-            self.view.makeToast("No internet connection")
+            self.view.makeToast(NO_INTERNET_MESSAGE)
         }
     }
     

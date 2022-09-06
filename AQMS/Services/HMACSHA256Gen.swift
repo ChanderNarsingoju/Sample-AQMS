@@ -10,28 +10,11 @@ import CommonCrypto
 import CryptoKit
 class HMACSHA256Gen {
 
-    private let algorithm = "HmacSHA256"
-    private let key = "9EbGeKgNjRnT"
-    
-//    func encode(data: [String: AnyObject]) -> String? {
-//
-////        let sha256HMAC = HMAC<SHA256>.
-////        val secretKey = SecretKeySpec(key.toByteArray(charset("UTF-8")), algorithm)
-////        sha256HMAC.init(secretKey)
-////
-////        return String(Hex.encodeHex(sha256HMAC.doFinal(data.toString().toByteArray(charset("UTF-8")))))
-//    }
-
-    func encode(data: Data) -> String? {
-        let secretString = "9EbGeKgNjRnT"
-        let key = SymmetricKey(data: Data(secretString.utf8))
-
-        let string = String(decoding: data, as: UTF8.self)
-
-        let signature = HMAC<SHA256>.authenticationCode(for: Data(string.utf8), using: key)
-        let value = Data(signature).map { String(format: "%02hhx", $0) }.joined()
-        print(value)
-        return value
+    func encode(path: String) -> String {
+        let string = path
+        let urlEncoded = string.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let val = urlEncoded?.hmac(algorithm: .SHA256, key: ENCODE_SECRET_KEY)
+        return val ?? ""
     }
     
 }

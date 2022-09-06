@@ -66,7 +66,7 @@ class MenuViewModel: BaseViewModel {
     ///   - indexPath: index
     /// - Returns: It returns the collection view cell.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCollectionViewCellIdentifier", for: indexPath) as! MenuCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MENU_COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! MenuCollectionViewCell
         let item = menuItems[indexPath.item]
         let icon = menuIcons[indexPath.item]
         cell.titleLabel.text = item
@@ -104,17 +104,17 @@ class MenuViewModel: BaseViewModel {
             break
         case MenuOptions.LOGOUT.rawValue:
             // create the alert
-            let alert = UIAlertController(title: "Logout", message: "Are you sure you want to Logout?", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: LOGOUT_TITLE, message: LOGOUT_ALERT_MESSAGE, preferredStyle: UIAlertController.Style.alert)
             
             // add the actions (buttons)
-            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { action in
+            alert.addAction(UIAlertAction(title: YES, style: UIAlertAction.Style.default, handler: { action in
                 
                 // do something like...
                 Defaults.accessToken = ""
                 self.gotoLoginPage()
 
             }))
-            alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: NO, style: UIAlertAction.Style.cancel, handler: nil))
             
             // getting access to the window object from SceneDelegate
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

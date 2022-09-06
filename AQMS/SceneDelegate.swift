@@ -61,8 +61,8 @@ extension SceneDelegate {
     }
     
     func navigateToHomePage() {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeVCIdentifier") as! HomeVC
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: MAIN_STORYOARD, bundle: nil)
+        let homeVC = mainStoryboard.instantiateViewController(withIdentifier: HOME_PAGE_IDENTIFIER) as! HomeVC
         let navigationController = UINavigationController(rootViewController: homeVC)
         navigationController.isNavigationBarHidden = true
         
@@ -70,8 +70,8 @@ extension SceneDelegate {
     }
     
     func navigateToLoginPage() {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVCIdentifier") as! LoginVC
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: MAIN_STORYOARD, bundle: nil)
+        let loginVC = mainStoryboard.instantiateViewController(withIdentifier: LOGIN_PAGE_IDENTIFIER) as! LoginVC
         let navigationController = UINavigationController(rootViewController: loginVC)
         navigationController.isNavigationBarHidden = true
         

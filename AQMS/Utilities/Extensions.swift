@@ -102,11 +102,15 @@ extension Data {
 extension UIImageView {
     public func imageFromUrl(urlString: String) {
         if let url = URL(string: urlString) {
-            var request = URLRequest(url: url)
+            let request = URLRequest(url: url)
             let session = URLSession(configuration: .default)
             session.dataTask(with: request,completionHandler: {(data,response,error) in
-                self.image = UIImage(data: data!)
-            })
+                if data != nil {
+                    DispatchQueue.main.async {
+                        self.image = UIImage(data: data!)
+                    }
+                }
+            }).resume()
         }
     }
 }

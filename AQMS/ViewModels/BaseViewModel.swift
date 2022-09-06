@@ -11,8 +11,8 @@ import SwiftyUserDefaults
 
 class BaseViewModel: NSObject {
     func gotoHomePage() {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeVCIdentifier") as! HomeVC
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: MAIN_STORYOARD, bundle: nil)
+        let homeVC = mainStoryboard.instantiateViewController(withIdentifier: HOME_PAGE_IDENTIFIER) as! HomeVC
         let navigationController = UINavigationController(rootViewController: homeVC)
         navigationController.isNavigationBarHidden = true
         
@@ -26,8 +26,8 @@ class BaseViewModel: NSObject {
     }
     
     func gotoLoginPage() {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVCIdentifier") as! LoginVC
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: MAIN_STORYOARD, bundle: nil)
+        let loginVC = mainStoryboard.instantiateViewController(withIdentifier: LOGIN_PAGE_IDENTIFIER) as! LoginVC
         let navigationController = UINavigationController(rootViewController: loginVC)
         navigationController.isNavigationBarHidden = true
         
@@ -39,4 +39,11 @@ class BaseViewModel: NSObject {
         }
         sceneDelegate.window?.rootViewController = navigationController
     }
+    
+    func generateImageUrlWith(path: String) -> String {
+        let string = "\(BASE_URL)\(path)?s=\(HMACSHA256Gen().encode(path: path))"
+        return string
+    }
+    
+    
 }
