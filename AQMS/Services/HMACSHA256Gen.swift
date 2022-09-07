@@ -12,7 +12,11 @@ class HMACSHA256Gen {
 
     func encode(path: String) -> String {
         let string = path
-        let urlEncoded = string.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        //let urlEncoded = string.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let unreserved = "-._~"
+        var allowed = CharacterSet.alphanumerics
+        allowed.insert(charactersIn: unreserved)
+        let urlEncoded = string.addingPercentEncoding(withAllowedCharacters: allowed)
         let val = urlEncoded?.hmac(algorithm: .SHA256, key: ENCODE_SECRET_KEY)
         return val ?? ""
     }

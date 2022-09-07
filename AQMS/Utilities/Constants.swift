@@ -12,7 +12,7 @@ let ENCODE_SECRET_KEY = "9EbGeKgNjRnT"
 let BASE_URL = "https://aqmsqa.scienstechnologies.com/qa-api"
 
 let BASE_LOGIN_URL: String = "\(BASE_URL)/api/auth/local"
-let IMAGE_URL: String = BASE_URL
+let UN_REGISTERED_HATCHERY_URL_PATH: String = "/api/hatcheries?_start=0&_limit=100&_sort=id:DESC&approvalStatus=ApprovalPending&approvalStatus=Rejected&userProfile_null=true"
 let BOOKINGS_URL: String = BASE_URL + "/api/bookings?_sort=cr eated_at:DESC"
 let UPLOAD_URL: String = BASE_URL+"/upload"
 let PDF_URL: String = BASE_URL

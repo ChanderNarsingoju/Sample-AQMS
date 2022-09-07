@@ -46,13 +46,13 @@ class User: Mappable {
     func mapping(map: Map) {
         self.blocked <- map["blocked"]
         self.confirmed <- map["confirmed"]
-        self.createdAt <- map["createdAt"]
+        self.createdAt <- map["created_at"]
         self.email <- map["email"]
         self.id <- map["id"]
         self.name <- map["name"]
         self.provider <- map["provider"]
         self.role <- map["role"]
-        self.updatedAt <- map["updatedAt"]
+        self.updatedAt <- map["updated_at"]
         self.userProfile <- map["userProfile"]
         self.username <- map["username"]
     }
@@ -71,7 +71,7 @@ class Role: Mappable {
     }
 
     func mapping(map: Map) {
-        self.roleDescription <- map["roleDescription"]
+        self.roleDescription <- map["description"]
         self.id <- map["id"]
         self.name <- map["name"]
         self.type <- map["type"]
@@ -100,8 +100,8 @@ class UserProfile: Mappable {
         self.authPerson1 <- map["authPerson1"]
         self.authPerson2 <- map["authPerson2"]
         self.createUser <- map["createUser"]
-        self.createdAt <- map["createdAt"]
-        self.hatcheryID <- map["hatcheryID"]
+        self.createdAt <- map["created_at"]
+        self.hatcheryID <- map["hatcheryId"]
         self.id <- map["id"]
         self.isDelete <- map["isDelete"]
         self.isHatcheryIncharge <- map["isHatcheryIncharge"]
@@ -113,7 +113,7 @@ class UserProfile: Mappable {
         self.updateRequestDetails <- map["updateRequestDetails"]
         self.updateRequestFlag <- map["updateRequestFlag"]
         self.updateUser <- map["updateUser"]
-        self.updatedAt <- map["updatedAt"]
+        self.updatedAt <- map["updated_at"]
         self.user <- map["user"]
     }
 }
@@ -134,19 +134,19 @@ class AuthPerson: Mappable {
 
     func mapping(map: Map) {
         self.aadhaarNumber <- map["aadhaarNumber"]
-        self.allowDisplayName <- map["allowDisplayName"]
-        self.allowUtf8LocalPart <- map["allowUtf8LocalPart"]
-        self.blacklistedChars <- map["blacklistedChars"]
+        self.allowDisplayName <- map["allow_display_name"]
+        self.allowUtf8LocalPart <- map["allow_utf8_local_part"]
+        self.blacklistedChars <- map["blacklisted_chars"]
         self.email <- map["email"]
-        self.hostBlacklist <- map["hostBlacklist"]
-        self.ignoreMaxLength <- map["ignoreMaxLength"]
-        self.ignoreWhitespace <- map["ignoreWhitespace"]
+        self.hostBlacklist <- map["host_blacklist"]
+        self.ignoreMaxLength <- map["ignore_max_length"]
+        self.ignoreWhitespace <- map["ignore_whitespace"]
         self.name <- map["name"]
         self.phoneNumber <- map["phoneNumber"]
         self.picture <- map["picture"]
-        self.requireDisplayName <- map["requireDisplayName"]
-        self.requireTLD <- map["requireTLD"]
-        self.updatedAt <- map["updatedAt"]
+        self.requireDisplayName <- map["require_display_name"]
+        self.requireTLD <- map["require_tld"]
+        self.updatedAt <- map["updated_at"]
     }
 }
 

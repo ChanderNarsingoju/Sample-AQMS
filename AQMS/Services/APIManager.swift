@@ -15,6 +15,7 @@ class APIManager {
     private init() {}
     let userDefaults = UserDefaults.standard
     
+    //MARK: Login with identifier and password
     func userLogin(username: String, password:String, onSuccess: @escaping (UserResponseModel) -> Void, onError: @escaping (String) -> Void) {
         //Converting string to url
         let urlString = BASE_LOGIN_URL
@@ -51,6 +52,49 @@ class APIManager {
                     print(responseDict)
                     let userResponse = UserResponseModel(JSON: responseDict, context: .none)
                     onSuccess(userResponse ?? UserResponseModel(JSON: [:], context: .none)!)
+                } else if response.response?.statusCode == 400 || response.response?.statusCode == 401 {
+                    onError("Identifier or password invalid.")
+                } else if response.response?.statusCode == 500{
+                    onError("Could not connect to server.")
+                } else if response.response?.statusCode == nil {
+                    onError("No internet connection.")
+                }
+                break
+            case .failure(let error):
+                print(error as Any)
+                onError(error.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    //MARK: Get Unregistered Hatery List
+    func getUnregisteredHatcheries(onSuccess: @escaping ([Hatchery]) -> Void, onError: @escaping (String) -> Void) {
+        //Converting string to url
+        let urlString = BASE_URL+UN_REGISTERED_HATCHERY_URL_PATH
+        guard let serviceUrl = URL(string: urlString) else { return }
+        var request = URLRequest(url: serviceUrl)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        let val = HMACSHA256Gen().encode(path: UN_REGISTERED_HATCHERY_URL_PATH)
+        let operation = "hatchery:view-unregistered"
+        let headers = [HEADER_X_API_SIGNATURE: val,
+                                      HEADER_X_API_VERSION: HEADER_X_API_VERSION_VAL,
+                                    HEADER_X_API_OPERATION: operation,
+                                       HEADER_CONTENT_TYPE: HEADER_CONTENT_TYPE_VAL]
+        
+        request.allHTTPHeaderFields = headers
+        AF.request(request).responseJSON { (response:AFDataResponse<Any>) in
+            print(response)
+            switch(response.result) {
+            case .success(_):
+                if response.response?.statusCode == 200 {
+                    var responseJson: String? = nil
+                    responseJson = String(data: response.data ?? Data(), encoding: .utf8)
+                    let responseDict = self.convertJSONStringToArray(responseJson ?? "")
+                    print(responseDict)
+                    let hatcheries = responseDict?.compactMap({Hatchery(JSON: $0 as! [String : Any], context: .none)})
+                    onSuccess(hatcheries ?? [])
                 } else if response.response?.statusCode == 400 || response.response?.statusCode == 401 {
                     onError("Identifier or password invalid.")
                 } else if response.response?.statusCode == 500{
@@ -151,6 +195,18 @@ class APIManager {
         return responseDictionary
         
     }
+
+    public func convertJSONStringToArray(_ JSONObject : String) -> Array<AnyObject>? {
+           if let data = JSONObject.data(using: String.Encoding.utf8) {
+               do {
+                   let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Array<AnyObject>
+                   return json
+               } catch {
+                   print("Something went wrong")
+               }
+           }
+           return nil
+       }
 }
 
 

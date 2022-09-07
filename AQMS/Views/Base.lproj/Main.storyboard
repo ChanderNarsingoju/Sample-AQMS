@@ -697,16 +697,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ROA-q1-tkm" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="507"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select CAA Permit Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAJ-oC-lvK">
-                                                <rect key="frame" x="20" y="50" width="335" height="21"/>
+                                                <rect key="frame" x="20" y="60" width="335" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1647058824" green="0.43529411759999997" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wQ-Ho-jgp">
-                                                <rect key="frame" x="20" y="106" width="335" height="180"/>
+                                                <rect key="frame" x="20" y="116" width="335" height="180"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRf-cR-sff">
                                                         <rect key="frame" x="67.5" y="109" width="200" height="36"/>
@@ -738,7 +738,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fkx-X3-F0s"/>
+                                                            <action selector="submitActon:" destination="ghU-26-eTL" eventType="touchUpInside" id="HiQ-qQ-j00"/>
                                                         </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Permit Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IUT-Uq-CnF">
@@ -789,13 +789,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COASTAL AQUACULTURE AUTHORITY  Department of fisheries Ministry of fisheries" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-Yy-Q0T">
-                                                <rect key="frame" x="20" y="326" width="335" height="41"/>
+                                                <rect key="frame" x="20" y="336" width="335" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1647058824" green="0.43529411759999997" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQj-mA-qfw">
-                                                <rect key="frame" x="77.5" y="402" width="220" height="45"/>
+                                                <rect key="frame" x="77.5" y="412" width="220" height="45"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="ClN-fX-WAc"/>
@@ -827,6 +827,31 @@
                                                     <action selector="forgotPasswordAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CEg-ZT-ELp"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgf-XJ-t4k">
+                                                <rect key="frame" x="8" y="25" width="70" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Ymx-go-Eh8"/>
+                                                    <constraint firstAttribute="width" constant="70" id="euZ-0s-uxB"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" red="0.1647058824" green="0.43529411759999997" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.1647058824" green="0.43529411759999997" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancelAction:" destination="ghU-26-eTL" eventType="touchUpInside" id="Ew2-1c-ZBE"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -834,14 +859,16 @@
                                             <constraint firstAttribute="trailing" secondItem="OJ3-Yy-Q0T" secondAttribute="trailing" constant="20" symbolic="YES" id="9DW-q1-85j"/>
                                             <constraint firstAttribute="bottom" secondItem="VQj-mA-qfw" secondAttribute="bottom" constant="50" id="B6E-Mi-22l"/>
                                             <constraint firstItem="VQj-mA-qfw" firstAttribute="top" secondItem="OJ3-Yy-Q0T" secondAttribute="bottom" constant="35" id="MrA-4E-KTd"/>
+                                            <constraint firstItem="Pgf-XJ-t4k" firstAttribute="top" secondItem="ROA-q1-tkm" secondAttribute="top" constant="25" id="NHc-a8-Rhs"/>
                                             <constraint firstAttribute="trailing" secondItem="9wQ-Ho-jgp" secondAttribute="trailing" constant="20" symbolic="YES" id="Wxt-bF-Ycq"/>
                                             <constraint firstItem="VQj-mA-qfw" firstAttribute="centerX" secondItem="ROA-q1-tkm" secondAttribute="centerX" id="Xia-dV-pTK"/>
+                                            <constraint firstItem="Pgf-XJ-t4k" firstAttribute="leading" secondItem="ROA-q1-tkm" secondAttribute="leading" constant="8" id="eZm-Cn-vKB"/>
                                             <constraint firstItem="OJ3-Yy-Q0T" firstAttribute="leading" secondItem="ROA-q1-tkm" secondAttribute="leading" constant="20" symbolic="YES" id="fMz-Hg-oX6"/>
                                             <constraint firstAttribute="trailing" secondItem="FAJ-oC-lvK" secondAttribute="trailing" constant="20" id="kYm-B7-tFm"/>
                                             <constraint firstItem="9wQ-Ho-jgp" firstAttribute="leading" secondItem="ROA-q1-tkm" secondAttribute="leading" constant="20" symbolic="YES" id="sPE-7U-hBZ"/>
                                             <constraint firstItem="FAJ-oC-lvK" firstAttribute="leading" secondItem="ROA-q1-tkm" secondAttribute="leading" constant="20" id="tTc-bL-nTt"/>
                                             <constraint firstItem="9wQ-Ho-jgp" firstAttribute="top" secondItem="FAJ-oC-lvK" secondAttribute="bottom" constant="35" id="tcX-qS-nLQ"/>
-                                            <constraint firstItem="FAJ-oC-lvK" firstAttribute="top" secondItem="ROA-q1-tkm" secondAttribute="top" constant="50" id="u2h-DM-awu"/>
+                                            <constraint firstItem="FAJ-oC-lvK" firstAttribute="top" secondItem="ROA-q1-tkm" secondAttribute="top" constant="60" id="u2h-DM-awu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -898,10 +925,10 @@
     </scenes>
     <designables>
         <designable name="5KV-mT-FN6">
-            <size key="intrinsicContentSize" width="250" height="41.607421875"/>
+            <size key="intrinsicContentSize" width="70" height="20"/>
         </designable>
         <designable name="Tlg-Nn-ub6">
-            <size key="intrinsicContentSize" width="250" height="41.607421875"/>
+            <size key="intrinsicContentSize" width="92" height="21"/>
         </designable>
     </designables>
     <resources>
