@@ -103,28 +103,13 @@ class MenuViewModel: BaseViewModel {
         case MenuOptions.HOW_TO_USE.rawValue:
             break
         case MenuOptions.LOGOUT.rawValue:
-            // create the alert
-            let alert = UIAlertController(title: LOGOUT_TITLE, message: LOGOUT_ALERT_MESSAGE, preferredStyle: UIAlertController.Style.alert)
-            
-            // add the actions (buttons)
-            alert.addAction(UIAlertAction(title: YES, style: UIAlertAction.Style.default, handler: { action in
-                
-                // do something like...
-                Defaults.accessToken = ""
-                self.gotoLoginPage()
-
-            }))
-            alert.addAction(UIAlertAction(title: NO, style: UIAlertAction.Style.cancel, handler: nil))
-            
-            // getting access to the window object from SceneDelegate
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let sceneDelegate = windowScene.delegate as? SceneDelegate
-            else {
-                return
-            }
-           
-            // show the alert
-            sceneDelegate.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            // Show an alert
+            Utility.getRootViewController()?.presentAlertWithTitleAndMessage(title: LOGOUT_TITLE, message: LOGOUT_ALERT_MESSAGE, options: NO,YES, completion: { index in
+                if index == 1 {
+                    Defaults.accessToken = ""
+                    self.gotoLoginPage()
+                }
+            })
             break
         default:
             break

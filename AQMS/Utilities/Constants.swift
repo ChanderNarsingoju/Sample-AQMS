@@ -27,6 +27,8 @@ let HOME_PAGE_IDENTIFIER = "HomeVCIdentifier"
 let LOGIN_PAGE_IDENTIFIER = "LoginVCIdentifier"
 let SIGNUP_PAGE_IDENTIFIER = "SignUpVCIdentifier"
 let MENU_IDENTIFIER = "MenuVCIdentifier"
+let SIGNUP_HATCHERY_DETAILS_IDENTIFIER = "SignUpHatcheryDetailsVCIdentifier"
+let REGISTRATION_PAGE_IDENTIFIER = "RegistrationVCIdentifier"
 
 //Cell Identifiers
 let HOME_COLLECTION_VIEW_CELL_IDENTIFIER = "HomeCollectionViewCellIdentifier"
@@ -36,10 +38,13 @@ let MENU_COLLECTION_VIEW_CELL_IDENTIFIER = "MenuCollectionViewCellIdentifier"
 let ENTER_USERNAME_MESSAGE = "Please Enter Email/Phone"
 let ENTER_PASSWORD_MESSAGE = "Please Enter Password"
 let NO_INTERNET_MESSAGE = "No internet connection"
+let SELECT_CAA_PERMIT_NUMBER = "Please Select CAA Permit Number to proceed"
+
 let LOGOUT_TITLE = "Logout"
 let LOGOUT_ALERT_MESSAGE = "Are you sure you want to Logout?"
 let YES = "Yes"
 let NO = "No"
+let OK = "Ok"
 
 //API header constants
 let HEADER_X_AUTH_TOKEN_KEY = "Authorization"

@@ -12,7 +12,6 @@ class HMACSHA256Gen {
 
     func encode(path: String) -> String {
         let string = path
-        //let urlEncoded = string.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let unreserved = "-._~"
         var allowed = CharacterSet.alphanumerics
         allowed.insert(charactersIn: unreserved)

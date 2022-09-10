@@ -10,6 +10,7 @@ import FirebaseCore
 import FirebaseMessaging
 import IQKeyboardManagerSwift
 import SwiftyUserDefaults
+import DropDown
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initializeFirebasePushNotifications(application: application)
         // Set Keyboard appearance
         IQKeyboardManager.shared.enable = true
-                
+        setUpDropDown()
         return true
     }
 
@@ -170,5 +171,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
 }
 
 extension AppDelegate  {
-
+    //MARK: Drop Down library Initialization
+    /// Drop Down library intializations.
+    func setUpDropDown() {
+        DropDown.startListeningToKeyboard()
+        DropDown.appearance().textColor = UIColor.black
+        DropDown.appearance().textFont = UIFont.systemFont(ofSize: 16.0)
+        DropDown.appearance().backgroundColor = .white
+        DropDown.appearance().selectionBackgroundColor = .white
+        DropDown.appearance().cellHeight = 45
+    }
 }
