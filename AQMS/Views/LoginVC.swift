@@ -8,6 +8,7 @@
 import UIKit
 import SwiftyUserDefaults
 import ToastSwiftFramework
+import IQKeyboardManagerSwift
 
 class LoginVC: UIViewController {
 
@@ -29,6 +30,7 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = true
         updateUI()
+        IQKeyboardManager.shared.disabledToolbarClasses = [LoginVC.self]
     }
 
     func updateUI() {
@@ -66,11 +68,11 @@ class LoginVC: UIViewController {
     
     @IBAction func loginAction(_ sender: Any) {
         if usernameTF.text == nil || usernameTF.text == "" {
-            self.view.makeToast(ENTER_USERNAME_MESSAGE)
+            presentAlertWithTitleAndMessage(title: "", message: ENTER_USERNAME_MESSAGE, options: OK) { index in}
             return
         }
         if passwordTF.text == nil || passwordTF.text == "" {
-            self.view.makeToast(ENTER_PASSWORD_MESSAGE)
+            presentAlertWithTitleAndMessage(title: "", message: ENTER_PASSWORD_MESSAGE, options: OK) { index in}
             return
         }
         if Reachability.isConnectedToNetwork() {

@@ -64,6 +64,7 @@
 		18D81B8528C914E1008F14B5 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D81B8428C914E1008F14B5 /* BaseVC.swift */; };
 		18D81B8728C917FF008F14B5 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D81B8628C917FF008F14B5 /* Utility.swift */; };
 		18D81B8A28C92001008F14B5 /* how_to_register_video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 18D81B8928C92001008F14B5 /* how_to_register_video.mp4 */; };
+		18D9167328CE584A0037A4DA /* FileUploadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9167228CE584A0037A4DA /* FileUploadResponse.swift */; };
 		18EA378128C38237003FE93B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EA377F28C38208003FE93B /* Alamofire.framework */; };
 		18EA378228C38237003FE93B /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18EA377F28C38208003FE93B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -161,6 +162,7 @@
 		18D81B8428C914E1008F14B5 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		18D81B8628C917FF008F14B5 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		18D81B8928C92001008F14B5 /* how_to_register_video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = how_to_register_video.mp4; sourceTree = "<group>"; };
+		18D9167228CE584A0037A4DA /* FileUploadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadResponse.swift; sourceTree = "<group>"; };
 		18EA377F28C38208003FE93B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -306,6 +308,7 @@
 			children = (
 				1800801B28C0F22600B3E71D /* UserResponse.swift */,
 				186C08D528C7CCD3004674F9 /* Hatchery.swift */,
+				18D9167228CE584A0037A4DA /* FileUploadResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 			files = (
 				1800801628C0C03900B3E71D /* UITextField+fixCaretPosition.swift in Sources */,
 				1816005A28C6698B00751429 /* BaseViewModel.swift in Sources */,
+				18D9167328CE584A0037A4DA /* FileUploadResponse.swift in Sources */,
 				186C08D628C7CCD3004674F9 /* Hatchery.swift in Sources */,
 				18D81B8528C914E1008F14B5 /* BaseVC.swift in Sources */,
 				186E12E628C0F5EA00D6B7E5 /* Constants.swift in Sources */,
@@ -708,18 +712,25 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6X82G43549;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AQMS/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires to access your camera to show image on profile";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires to access your photo library to show image on profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,18 +752,25 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6X82G43549;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AQMS/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires to access your camera to show image on profile";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires to access your photo library to show image on profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -40,7 +40,7 @@ class APIManager {
         let headers = [HEADER_X_API_SIGNATURE: val,
                                       HEADER_X_API_VERSION: HEADER_X_API_VERSION_VAL,
                                     HEADER_X_API_OPERATION: operation,
-                                       HEADER_CONTENT_TYPE: HEADER_CONTENT_TYPE_VAL]
+                                       HEADER_CONTENT_TYPE: HEADER_CONTENT_TYPE_JSON]
         
         request.allHTTPHeaderFields = headers
         AF.request(request).responseJSON { (response:AFDataResponse<Any>) in
@@ -81,7 +81,7 @@ class APIManager {
         let headers = [HEADER_X_API_SIGNATURE: val,
                                       HEADER_X_API_VERSION: HEADER_X_API_VERSION_VAL,
                                     HEADER_X_API_OPERATION: operation,
-                                       HEADER_CONTENT_TYPE: HEADER_CONTENT_TYPE_VAL]
+                                       HEADER_CONTENT_TYPE: HEADER_CONTENT_TYPE_JSON]
         
         request.allHTTPHeaderFields = headers
         AF.request(request).responseJSON { (response:AFDataResponse<Any>) in
@@ -97,6 +97,40 @@ class APIManager {
                     onSuccess(hatcheries ?? [])
                 } else if response.response?.statusCode == 400 || response.response?.statusCode == 401 {
                     onError("Identifier or password invalid.")
+                } else if response.response?.statusCode == 500{
+                    onError("Could not connect to server.")
+                } else if response.response?.statusCode == nil {
+                    onError("No internet connection.")
+                }
+                break
+            case .failure(let error):
+                print(error as Any)
+                onError(error.localizedDescription)
+                break
+            }
+        }
+    }
+    
+    
+    func uploadFile(endUrl: String, fileData: Data?, headers: HTTPHeaders, fileName: String, mimeType: String, onSuccess: @escaping ([FileUploadResponse]) -> Void, onError: @escaping (String) -> Void){
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            if let data = fileData {
+                multipartFormData.append(data, withName: "files", fileName: fileName, mimeType: mimeType)
+            }
+        }, to: endUrl, method: .post , headers: headers).responseJSON { (response:AFDataResponse<Any>) in
+            print(response)
+            switch(response.result) {
+            case .success(_):
+                if response.response?.statusCode == 200 {
+                    var responseJson: String? = nil
+                    responseJson = String(data: response.data ?? Data(), encoding: .utf8)
+                    let responseDict = self.convertJSONStringToArray(responseJson ?? "")
+                    print(responseDict)
+                    let fileUploadResponse = responseDict?.compactMap({FileUploadResponse(JSON: $0 as! [String : Any], context: .none)})
+                    onSuccess(fileUploadResponse ?? [])
+                } else if response.response?.statusCode == 400 || response.response?.statusCode == 401 {
+                    onError("Failed to upload file.")
                 } else if response.response?.statusCode == 500{
                     onError("Could not connect to server.")
                 } else if response.response?.statusCode == nil {
@@ -135,7 +169,7 @@ class APIManager {
         let headers = [HEADER_X_API_SIGNATURE: val,
                                       HEADER_X_API_VERSION: HEADER_X_API_VERSION_VAL,
                                     HEADER_X_API_OPERATION: operation,
-                                       HEADER_CONTENT_TYPE: HEADER_CONTENT_TYPE_VAL]
+                                       HEADER_CONTENT_TYPE: HEADER_CONTENT_TYPE_JSON]
         
         request.allHTTPHeaderFields = headers
         AF.request(request).responseJSON { (response:AFDataResponse<Any>) in
@@ -197,16 +231,16 @@ class APIManager {
     }
 
     public func convertJSONStringToArray(_ JSONObject : String) -> Array<AnyObject>? {
-           if let data = JSONObject.data(using: String.Encoding.utf8) {
-               do {
-                   let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Array<AnyObject>
-                   return json
-               } catch {
-                   print("Something went wrong")
-               }
-           }
-           return nil
-       }
+        if let data = JSONObject.data(using: String.Encoding.utf8) {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? Array<AnyObject>
+                return json
+            } catch {
+                print("Something went wrong")
+            }
+        }
+        return nil
+    }
 }
 
 

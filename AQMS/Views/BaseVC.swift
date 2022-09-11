@@ -29,17 +29,7 @@ extension UIViewController {
                 completion(index)
             }))
         }
-        topMostViewController().present(alertController, animated: true, completion: nil)
+        Utility.topMostViewController().present(alertController, animated: true, completion: nil)
     }
     
-    /// Get the top most view in the app
-    /// — Returns: It returns current foreground UIViewcontroller
-    
-    func topMostViewController() -> UIViewController {
-        var topViewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController
-        while ((topViewController?.presentedViewController) != nil) {
-            topViewController = topViewController?.presentedViewController
-        }
-        return topViewController!
-    }
 }
