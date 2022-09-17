@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+private var __maxLengths = [UITextField: Int]()
+
 @IBDesignable extension UIView {
     @IBInspectable var shadowColor: UIColor?{
         set {
@@ -113,4 +115,116 @@ extension UIImageView {
             }).resume()
         }
     }
+}
+
+extension UIImage {
+    func toBase64() -> String? {
+        guard let imageData = self.pngData() else { return nil }
+        return imageData.base64EncodedString(options: .lineLength64Characters)
+    }
+    
+    // MARK: - UIImage+Resize
+    func compressTo(_ expectedSizeInMb:Float) -> Data? {
+        let sizeInBytes = expectedSizeInMb * 1024 * 1024
+        var needCompress:Bool = true
+        var imgData:Data?
+        var compressingValue:CGFloat = 1.0
+        while (needCompress && compressingValue > 0.0) {
+            if let data:Data = self.jpegData(compressionQuality: compressingValue) {
+                if Float(data.count) < sizeInBytes {
+                    needCompress = false
+                    imgData = data
+                } else {
+                    compressingValue -= 0.1
+                }
+            }
+        }
+        
+        if let data = imgData {
+            if ( Float(data.count) < sizeInBytes) {
+                return data//UIImage(data: data)
+            }
+        }
+        return Data()
+    }
+    
+    func scalePreservingAspectRatio(targetSize: CGSize) -> UIImage {
+            // Determine the scale factor that preserves aspect ratio
+            let widthRatio = targetSize.width / size.width
+            let heightRatio = targetSize.height / size.height
+            
+            let scaleFactor = min(widthRatio, heightRatio)
+            
+            // Compute the new image size that preserves aspect ratio
+            let scaledImageSize = CGSize(
+                width: size.width * scaleFactor,
+                height: size.height * scaleFactor
+            )
+
+            // Draw and return the resized UIImage
+            let renderer = UIGraphicsImageRenderer(
+                size: scaledImageSize
+            )
+
+            let scaledImage = renderer.image { _ in
+                self.draw(in: CGRect(
+                    origin: .zero,
+                    size: scaledImageSize
+                ))
+            }
+            
+            return scaledImage
+        }
+}
+
+extension UITextField {
+    
+//    func underlined(){
+//        let border = CALayer()
+//        let lineWidth = CGFloat(2)
+//        border.borderColor = FSColors.epirocWarmGrey3()?.cgColor
+//        border.frame = CGRect(x: 0, y: self.frame.size.height - lineWidth, width:  self.frame.size.width, height: self.frame.size.height)
+//        border.borderWidth = lineWidth
+//        self.layer.addSublayer(border)
+//        self.layer.masksToBounds = true
+//    }
+//
+//    func imageRightViewModeWith(_ image:UIImage, frame: CGRect) {
+//        let imageView = UIImageView();
+//        imageView.frame = frame
+//        self.addSubview(imageView)
+//        // let image = UIImage(named: imageName);
+//        imageView.image = image;
+//        self.rightView = imageView;
+//        self.rightViewMode = .always
+//    }
+    
+    //MARK: TextField Max Length Checking
+    @IBInspectable var maxLength: Int {
+        get {
+            guard let l = __maxLengths[self] else {
+                return 150 // (global default-limit. or just, Int.max)
+            }
+            return l
+        }
+        set {
+            __maxLengths[self] = newValue
+            addTarget(self, action: #selector(fix), for: .editingChanged)
+        }
+    }
+    @objc func fix(textField: UITextField) {
+        let t = textField.text
+        textField.text = t?.safelyLimitedTo(length: maxLength)
+    }
+    
+}
+
+extension String {
+    func safelyLimitedTo(length n: Int)->String {
+        if (self.count <= n) {
+            return self
+        }
+        return String( Array(self).prefix(upTo: n) )
+    }
+    
 }

@@ -54,7 +54,7 @@ case MD5, SHA1, SHA224, SHA256, SHA384, SHA512
 
 extension String {
     
-    func hmac(algorithm: CryptoAlgorithm, key: String) -> String {
+    func hmac(algorithm: CryptoAlgorithm = .SHA256, key: String = ENCODE_SECRET_KEY) -> String {
         let str = self.cString(using: String.Encoding.utf8)
         let strLen = Int(self.lengthOfBytes(using: String.Encoding.utf8))
         let digestLen = algorithm.digestLength
@@ -75,5 +75,9 @@ extension String {
             hash.appendFormat("%02x", result[i])
         }
         return String(hash)
+    }
+    
+    func trim() -> String {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

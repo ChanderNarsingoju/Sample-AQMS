@@ -13,8 +13,14 @@ let BASE_URL = "https://aqmsqa.scienstechnologies.com/qa-api"
 
 let BASE_LOGIN_URL: String = "\(BASE_URL)/api/auth/local"
 let UN_REGISTERED_HATCHERY_URL_PATH: String = "/api/hatcheries?_start=0&_limit=100&_sort=id:DESC&approvalStatus=ApprovalPending&approvalStatus=Rejected&userProfile_null=true"
-let BOOKINGS_URL: String = BASE_URL + "/api/bookings?_sort=cr eated_at:DESC"
+let BOOKINGS_URL: String = BASE_URL + "/api/bookings?_sort=created_at:DESC"
 let UPLOAD_URL: String = BASE_URL+"/upload"
+let FACE_ENROLE_URL: String = BASE_URL+"/api/settings/faceenrol"
+let REGISTRATION_OTP_URL: String = BASE_URL+"/api/registration-otps"
+let FORGOT_PASSWORD_OTP_URL: String = BASE_URL+"/api/local/forgot-password"
+let RESET_PASSWORD_URL: String = BASE_URL+"/api/local/reset-password"
+let TEST_UNIQUE_FIELDS_URL: String = BASE_URL+"/api/settings/test-unique"
+
 let PDF_URL: String = BASE_URL
 let PDF_URL_DOWNLOAD: String = BASE_URL+"/local/download-file"
 let ATTACHMENT_URL: String = BASE_URL
@@ -29,6 +35,8 @@ let SIGNUP_PAGE_IDENTIFIER = "SignUpVCIdentifier"
 let MENU_IDENTIFIER = "MenuVCIdentifier"
 let SIGNUP_HATCHERY_DETAILS_IDENTIFIER = "SignUpHatcheryDetailsVCIdentifier"
 let REGISTRATION_PAGE_IDENTIFIER = "RegistrationVCIdentifier"
+let FORGOT_PASSWORD_PAGE_IDENTIFIER = "ForgotPasswordVCIdentifier"
+let RESETPASSWORD_PAGE_IDENTIFIER = "ResetPasswordVCIdentifier"
 
 //Cell Identifiers
 let HOME_COLLECTION_VIEW_CELL_IDENTIFIER = "HomeCollectionViewCellIdentifier"
@@ -41,6 +49,14 @@ let NO_INTERNET_MESSAGE = "No internet connection"
 let SELECT_CAA_PERMIT_NUMBER = "Please Select CAA Permit Number to proceed"
 let UNSUPPORTED_FILE_EXTENSION = "Unsupported file extension"
 let UPLOADING_FILE = "Uploading file..."
+let PLEASE_ENTER_PHONE_NUMBER = "Please Enter Phone Number"
+let PLEASE_ENTER_VALID_PHONE_NUMBER = "Please Enter Valid 10 digit Phone Number"
+let PLEASE_ENTER_EMAIL_ADDRESS = "Please Enter Email Address"
+let PLEASE_ENTER_NEW_PASSWORD = "Please Enter New Password"
+let PLEASE_UPDATE_CONFIRM_PASSWORD_FIELD = "Please Update Confirm Password Field"
+let PLEASE_UPDATE_TOKEN_THAT_HAS_BEEN_SENT_TO_YOUR_PHONE = "Please Update Token That Has Been Sent To Your Phone"
+let PASSWORDS_DOES_NOT_MATCH = "Password's does not match!"
+
 
 let LOGOUT_TITLE = "Logout"
 let LOGOUT_ALERT_MESSAGE = "Are you sure you want to Logout?"
@@ -73,6 +89,20 @@ let STATUS_CODE_500 = 500
 let IDENTIFIER = "identifier"
 let PASSWORD = "password"
 let NOT_TOKEN = "notificationToken"
+let LIVE_FACE_IMAGE = "livefaceimage"
+let RRN = "rrn"
+let REF_TIME_STAMP = "reftimestamp"
+let SLK = "slk"
+let SERVICE_CODE = "servicecode"
+let USER_ID = "userid"
+let ENROLLMENT_ID = "enrollmentid"
+let EMAIL = "email"
+let NUMBER = "number"
+let ATTRIBUTE = "attribute"
+let VALUE = "value"
+let CURRENT_ID = "currentId"
+
+
 let SOURCE_REGISTRATION = "registration"
 let BOOKING_STATUS_CANCEL = "Canceled"
 let BOOKING_STATUS_CONFIRMED = "Confirmed"
@@ -149,3 +179,34 @@ let REGISTRATION_OTP = "OTP"
 let REGISTRATION_ACCOUNT_DETAIL_PROOF = "bankAccountDetailProof"
 let REGISTRATION_AUTH_PERSON_ONE = "authPerson1"
 let REGISTRATION_AUTH_PERSON_TWO = "authPerson2"
+
+
+
+//Field tags
+let PROFILE_TYPE_TF_TAG = 101
+let ADDRESS_TF_TAG = 102
+let NAME_TF_TAG = 103
+let EMAIL_ADDRESS_TF_TAG = 104
+let AUTH_ONE_PERSION_NAME_TF_TAG = 105
+let AUTH_ONE_PERSION_MOBILE_NUMBER_TF_TAG = 106
+let AUTH_ONE_PERSION_EMAIL_ADDRESS_TF_TAG = 107
+let AUTH_ONE_PERSION_AADHAR_NUMBER_TF_TAG = 108
+let AUTH_TWO_PERSION_NAME_TF_TAG = 109
+let AUTH_TWO_PERSION_MOBILE_NUMBER_TF_TAG = 110
+let AUTH_TWO_PERSION_EMAIL_ADDRESS_TF_TAG = 111
+let AUTH_TWO_PERSION_AADHAR_NUMBER_TF_TAG = 112
+let BANK_ACCOUNT_NAME_TF_TAG = 113
+let BANK_ACCOUNT_NUMBER_TF_TAG = 114
+let BANK_ACCOUNT_TYPE_TF_TAG = 115
+let BANK_NAME_TF_TAG = 116
+let BANK_BRANCH_NAME_TF_TAG = 117
+let BANK_IFSC_CODE_TF_TAG = 118
+let SECONDARY_BANK_ACCOUNT_NAME_TF_TAG = 119
+let SECONDARY_BANK_ACCOUNT_NUMBER_TF_TAG = 120
+let SECONDARY_BANK_ACCOUNT_TYPE_TF_TAG = 121
+let SECONDARY_BANK_NAME_TF_TAG = 122
+let SECONDARY_BANK_BRANCH_NAME_TF_TAG = 123
+let SECONDARY_BANK_IFSC_CODE_TF_TAG = 124
+let MOBILE_NUMBER_TF_TAG = 125
+let ENTER_OTP_TF_TAG = 126
+let ENTER_PASSWORD_TF_TAG = 127

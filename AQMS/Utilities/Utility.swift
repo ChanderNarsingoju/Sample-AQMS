@@ -30,4 +30,19 @@ public class Utility {
         }
         return topViewController!
     }
+    
+    class func getCurrentUTCTimeString() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        print(dateFormatter.string(from: date))
+        return dateFormatter.string(from: date)
+    }
+    
+    class func convertDataToStringWith(data: Data) -> String {
+        let string = String(decoding: data, as: UTF8.self)
+        return string
+    }
 }

@@ -87,7 +87,9 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func forgotPasswordAction(_ sender: Any) {
-        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: MAIN_STORYOARD, bundle: nil)
+        let forgotPasswordVC = mainStoryboard.instantiateViewController(withIdentifier: FORGOT_PASSWORD_PAGE_IDENTIFIER) as! ForgotPasswordVC
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
 }
 

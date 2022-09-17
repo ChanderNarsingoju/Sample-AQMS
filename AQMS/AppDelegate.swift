@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initializeFirebasePushNotifications(application: application)
         // Set Keyboard appearance
         IQKeyboardManager.shared.enable = true
+
         ToastManager.shared.position = .top
         ToastManager.shared.style.backgroundColor = UIColor(red: 237/255.0, green: 107/255.0, blue: 73/255.0, alpha: 1.0)
         setUpDropDown()

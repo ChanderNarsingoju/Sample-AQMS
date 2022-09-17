@@ -33,6 +33,8 @@
 		1807063D28C5081900498EF6 /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1807063A28C5080E00498EF6 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1807063F28C508BA00498EF6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1807063E28C508BA00498EF6 /* LoginViewModel.swift */; };
 		1816005A28C6698B00751429 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816005928C6698B00751429 /* BaseViewModel.swift */; };
+		1853041B28D3176600024B3E /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1853041A28D3176600024B3E /* ForgotPasswordVC.swift */; };
+		1853041D28D3362F00024B3E /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1853041C28D3362F00024B3E /* ResetPasswordVC.swift */; };
 		186C08D628C7CCD3004674F9 /* Hatchery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C08D528C7CCD3004674F9 /* Hatchery.swift */; };
 		186E12E428C0F56000D6B7E5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E12E328C0F56000D6B7E5 /* APIManager.swift */; };
 		186E12E628C0F5EA00D6B7E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E12E528C0F5EA00D6B7E5 /* Constants.swift */; };
@@ -54,11 +56,13 @@
 		186E130C28C314AC00D6B7E5 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E130B28C314AC00D6B7E5 /* MenuVC.swift */; };
 		186E130E28C3224E00D6B7E5 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E130D28C3224E00D6B7E5 /* MenuViewModel.swift */; };
 		186E131028C3409600D6B7E5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E130F28C3409500D6B7E5 /* SignUpVC.swift */; };
+		186E2C0328D351790048DC5F /* ResetPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E2C0228D351790048DC5F /* ResetPasswordResponse.swift */; };
+		186E2C0528D5B2A00048DC5F /* FaceEnrollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E2C0428D5B29F0048DC5F /* FaceEnrollResponse.swift */; };
 		18A7418C28CC6B1300F1A0BF /* SignUpHatcheryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7418B28CC6B1200F1A0BF /* SignUpHatcheryDetailsVC.swift */; };
 		18A7418E28CCC62500F1A0BF /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7418D28CCC62400F1A0BF /* RegistrationVC.swift */; };
+		18AF13BD28CFCD3A007F6E73 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D81B6F28C7D91E008F14B5 /* IQKeyboardManager.framework */; };
+		18AF13BE28CFCD3A007F6E73 /* IQKeyboardManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18D81B6F28C7D91E008F14B5 /* IQKeyboardManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18D81B6E28C7D55A008F14B5 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D81B6D28C7D55A008F14B5 /* SignUpViewModel.swift */; };
-		18D81B7128C7D92A008F14B5 /* IQKeyboardManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D81B6F28C7D91E008F14B5 /* IQKeyboardManager.framework */; };
-		18D81B7228C7D92A008F14B5 /* IQKeyboardManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18D81B6F28C7D91E008F14B5 /* IQKeyboardManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18D81B8228C8FBFE008F14B5 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D81B8028C8FB1C008F14B5 /* DropDown.framework */; };
 		18D81B8328C8FBFE008F14B5 /* DropDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18D81B8028C8FB1C008F14B5 /* DropDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18D81B8528C914E1008F14B5 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D81B8428C914E1008F14B5 /* BaseVC.swift */; };
@@ -98,7 +102,7 @@
 				1807063728C473E300498EF6 /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				1807063128C3D40D00498EF6 /* IQKeyboardManagerSwift.framework in Embed Frameworks */,
 				18EA378228C38237003FE93B /* Alamofire.framework in Embed Frameworks */,
-				18D81B7228C7D92A008F14B5 /* IQKeyboardManager.framework in Embed Frameworks */,
+				18AF13BE28CFCD3A007F6E73 /* IQKeyboardManager.framework in Embed Frameworks */,
 				18D81B8328C8FBFE008F14B5 /* DropDown.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -133,6 +137,8 @@
 		1807063A28C5080E00498EF6 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = SOURCE_ROOT; };
 		1807063E28C508BA00498EF6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		1816005928C6698B00751429 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		1853041A28D3176600024B3E /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		1853041C28D3362F00024B3E /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		186C08D528C7CCD3004674F9 /* Hatchery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hatchery.swift; sourceTree = "<group>"; };
 		186E12E328C0F56000D6B7E5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		186E12E528C0F5EA00D6B7E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -154,6 +160,8 @@
 		186E130B28C314AC00D6B7E5 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		186E130D28C3224E00D6B7E5 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		186E130F28C3409500D6B7E5 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		186E2C0228D351790048DC5F /* ResetPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordResponse.swift; sourceTree = "<group>"; };
+		186E2C0428D5B29F0048DC5F /* FaceEnrollResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceEnrollResponse.swift; sourceTree = "<group>"; };
 		18A7418B28CC6B1200F1A0BF /* SignUpHatcheryDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpHatcheryDetailsVC.swift; sourceTree = "<group>"; };
 		18A7418D28CCC62400F1A0BF /* RegistrationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		18D81B6D28C7D55A008F14B5 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -176,10 +184,10 @@
 				186E12F528C1FE3A00D6B7E5 /* FirebaseInstallations.xcframework in Frameworks */,
 				1807063628C473E300498EF6 /* SwiftyUserDefaults.framework in Frameworks */,
 				186E130528C2036A00D6B7E5 /* FirebaseCoreInternal.xcframework in Frameworks */,
+				18AF13BD28CFCD3A007F6E73 /* IQKeyboardManager.framework in Frameworks */,
 				186E12ED28C1FDD400D6B7E5 /* FirebaseAnalytics.xcframework in Frameworks */,
 				186E130128C200A500D6B7E5 /* GoogleUtilities.xcframework in Frameworks */,
 				186E12EF28C1FDEB00D6B7E5 /* FirebaseCore.xcframework in Frameworks */,
-				18D81B7128C7D92A008F14B5 /* IQKeyboardManager.framework in Frameworks */,
 				186E130028C200A500D6B7E5 /* GoogleAppMeasurement.xcframework in Frameworks */,
 				18EA378128C38237003FE93B /* Alamofire.framework in Frameworks */,
 				186E130328C200B900D6B7E5 /* FBLPromises.xcframework in Frameworks */,
@@ -271,6 +279,8 @@
 			children = (
 				18D81B8428C914E1008F14B5 /* BaseVC.swift */,
 				18007FDF28C076AC00B3E71D /* LoginVC.swift */,
+				1853041A28D3176600024B3E /* ForgotPasswordVC.swift */,
+				1853041C28D3362F00024B3E /* ResetPasswordVC.swift */,
 				186E130F28C3409500D6B7E5 /* SignUpVC.swift */,
 				18A7418B28CC6B1200F1A0BF /* SignUpHatcheryDetailsVC.swift */,
 				18A7418D28CCC62400F1A0BF /* RegistrationVC.swift */,
@@ -309,6 +319,8 @@
 				1800801B28C0F22600B3E71D /* UserResponse.swift */,
 				186C08D528C7CCD3004674F9 /* Hatchery.swift */,
 				18D9167228CE584A0037A4DA /* FileUploadResponse.swift */,
+				186E2C0228D351790048DC5F /* ResetPasswordResponse.swift */,
+				186E2C0428D5B29F0048DC5F /* FaceEnrollResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -503,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1800801628C0C03900B3E71D /* UITextField+fixCaretPosition.swift in Sources */,
+				1853041D28D3362F00024B3E /* ResetPasswordVC.swift in Sources */,
 				1816005A28C6698B00751429 /* BaseViewModel.swift in Sources */,
 				18D9167328CE584A0037A4DA /* FileUploadResponse.swift in Sources */,
 				186C08D628C7CCD3004674F9 /* Hatchery.swift in Sources */,
@@ -518,15 +531,18 @@
 				1800801F28C0F44100B3E71D /* Reachability.swift in Sources */,
 				186E130A28C2774000D6B7E5 /* HomeViewModel.swift in Sources */,
 				1800801C28C0F22600B3E71D /* UserResponse.swift in Sources */,
+				1853041B28D3176600024B3E /* ForgotPasswordVC.swift in Sources */,
 				1800801528C0C03900B3E71D /* SkyFloatingLabelTextField.swift in Sources */,
 				186E12E828C10A0200D6B7E5 /* HMACSHA256Gen.swift in Sources */,
 				1800801928C0CF6C00B3E71D /* Extensions.swift in Sources */,
+				186E2C0328D351790048DC5F /* ResetPasswordResponse.swift in Sources */,
 				186E130C28C314AC00D6B7E5 /* MenuVC.swift in Sources */,
 				18A7418C28CC6B1300F1A0BF /* SignUpHatcheryDetailsVC.swift in Sources */,
 				186E130E28C3224E00D6B7E5 /* MenuViewModel.swift in Sources */,
 				18D81B8728C917FF008F14B5 /* Utility.swift in Sources */,
 				1807063F28C508BA00498EF6 /* LoginViewModel.swift in Sources */,
 				18D81B6E28C7D55A008F14B5 /* SignUpViewModel.swift in Sources */,
+				186E2C0528D5B2A00048DC5F /* FaceEnrollResponse.swift in Sources */,
 				186E131028C3409600D6B7E5 /* SignUpVC.swift in Sources */,
 				18A7418E28CCC62500F1A0BF /* RegistrationVC.swift in Sources */,
 			);
@@ -726,8 +742,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -737,11 +754,11 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sample.AQMS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidBizApps.groundHog.Shifter.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -766,8 +783,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -777,11 +795,11 @@
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sample.AQMS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rapidBizApps.groundHog.Shifter.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
